@@ -11,7 +11,7 @@ class ProductViewModel extends ChangeNotifier {
 
   Database _database = Database();
 
-  getProductList() {
+  Stream<List<Product>> getProductList() {
     const String productRef = "Products";
 
     /// stream<QuerySnapshot> --> Stream<List<DocumentSnapshot>>
@@ -21,8 +21,22 @@ class ProductViewModel extends ChangeNotifier {
 
     ///Stream<List<DocumentSnapshot>> --> Stream<List<Product>>
 
-    var streamListProduct = streamListDocument.map((listOfDocSnap) =>
-        listOfDocSnap.map((docSnap) => Product.fromMap(docSnap.data() as Map)));
+    Stream<List<Product>> streamListProduct = streamListDocument.map(
+        (listOfDocSnap) => listOfDocSnap
+            .map((docSnap) => Product.fromMap(docSnap.data() as Map))
+            .toList());
     return streamListProduct;
+  }
+
+  getProduct() {
+    const String productRef = "Products";
+
+    var products = _database.getProductListFromApi(productRef);
+    var product = products.map((querySnap) => querySnap.docs
+        .map((qds) => Product.fromMap(qds.data() as Map))
+        .toList());
+    var son = product.map((event) => event[27297].Name);
+
+    return son.map((event) => event);
   }
 }
