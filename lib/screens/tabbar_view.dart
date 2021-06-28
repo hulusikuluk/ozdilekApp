@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ozdilek_app/constants.dart';
+import 'package:ozdilek_app/screens/drawer.dart';
 import 'package:ozdilek_app/size_config.dart';
 import 'tabView/home_view.dart';
 import 'tabView/search_view.dart';
@@ -19,6 +20,9 @@ class _MainTabbarViewState extends State<MainTabbarView> {
         length: defaultTabLength,
         initialIndex: 0,
         child: Scaffold(
+          drawer: Drawer(
+            child: DrawerMenu(),
+          ),
           bottomNavigationBar: _bottomAppBar,
           body: SafeArea(
             child: Column(
@@ -52,7 +56,7 @@ class _MainTabbarViewState extends State<MainTabbarView> {
         child: _appBar,
       );
   Widget get _appBar => AppBar(
-        leading: Icon(Icons.grid_view, size: 36.0, color: kPrimaryColor),
+        // leading: Icon(Icons.grid_view, size: 36.0, color: kPrimaryColor),
         title: Text(
           'Özdilek Ürünleri',
           style: TextStyle(

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ozdilek_app/screens/detail_screen.dart';
+import 'package:ozdilek_app/screens/productView/product_view.dart';
 import 'constants.dart';
 import 'screens/splash_screen.dart';
 import 'screens/tabbar_view.dart';
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         SplashScreen.routeName: (context) => SplashScreen(),
         MainTabbarView.routeName: (context) => MainTabbarView(),
-        DetailScreen.routeName: (context) => DetailScreen(),
+        ProductView.routeName: (context) => ProductView(),
       },
       theme: ThemeData.light().copyWith(
         appBarTheme: AppBarTheme(

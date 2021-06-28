@@ -11,35 +11,35 @@ class _SearchViewState extends State<SearchView> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(
-          child: Stack(
-            children: [
-              Container(color: kPrimaryColor),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(88),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
         Container(
-          height: 200,
-          child: Stack(
-            children: [
-              Container(color: Colors.white),
-              Container(
-                decoration: BoxDecoration(
-                  color: kPrimaryColor,
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(88),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: TextField(
+              decoration: InputDecoration(
+                prefixIcon: Icon(
+                  Icons.search,
+                  color: Colors.white,
+                ),
+                hintText: "Ürünler içinde ara...",
+                hintStyle: TextStyle(color: Colors.white),
+                fillColor: kPrimaryColor,
+                filled: true,
+                suffixIcon: Container(
+                  padding: EdgeInsets.all(7.0),
+                  child: PhysicalShape(
+                    color: kPrimaryColor,
+                    shadowColor: Colors.black,
+                    elevation: 3,
+                    clipper: ShapeBorderClipper(
+                      shape: CircleBorder(),
+                    ),
                   ),
                 ),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(40),
+                    borderSide: BorderSide.none),
               ),
-            ],
+            ),
           ),
         ),
       ],

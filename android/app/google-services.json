@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "9345814656",
+    "project_id": "ozdilekapp",
+    "storage_bucket": "ozdilekapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9345814656:android:d0daa3eea433bbe31bd665",
+        "android_client_info": {
+          "package_name": "com.example.ozdilek_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9345814656-3pamrnj42fc65pdmmqnvi0cieahpsd41.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjajfK8dCgeKnRepvveSSJuPIgPGvQvQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "9345814656-3pamrnj42fc65pdmmqnvi0cieahpsd41.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

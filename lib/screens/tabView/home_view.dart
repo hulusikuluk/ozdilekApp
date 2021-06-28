@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ozdilek_app/screens/detail_screen.dart';
+import 'package:ozdilek_app/screens/productView/product_view.dart';
 import 'package:ozdilek_app/size_config.dart';
 
 class HomeView extends StatefulWidget {
@@ -48,7 +48,7 @@ class _HomeViewState extends State<HomeView> {
       child: InkWell(
         key: UniqueKey(),
         onTap: () {
-          Navigator.pushNamed(context, DetailScreen.routeName);
+          Navigator.pushNamed(context, ProductView.routeName);
         },
         child: Padding(
           padding: const EdgeInsets.all(8.0),
