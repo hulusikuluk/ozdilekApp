@@ -3,7 +3,7 @@ import 'package:ozdilek_app/colors.dart';
 import 'package:ozdilek_app/size_config.dart';
 
 class DrawerMenu extends StatelessWidget {
-  const DrawerMenu({Key? key}) : super(key: key);
+  const DrawerMenu({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

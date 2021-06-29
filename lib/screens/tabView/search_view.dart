@@ -31,15 +31,18 @@ class _SearchViewState extends State<SearchView> {
                       child: CircularProgressIndicator(),
                     );
                   } else {
-                    List<Product>? productList = asyncSnapshot.data;
+                    List<Product> productList = asyncSnapshot.data;
                     return Flexible(
                       child: ListView.builder(
-                        itemCount: productList!.length,
+                        itemCount: productList.length,
                         itemBuilder: (context, index) {
                           return Container(
                             child: Card(
                               child: ListTile(
-                                title: Text(productList[index].Name),
+                                title: Text(
+                                  productList[index].Name,
+                                  style: TextStyle(color: Colors.black),
+                                ),
                                 subtitle: Text(productList[index].Product_code),
                               ),
                             ),
