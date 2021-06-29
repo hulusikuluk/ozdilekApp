@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ozdilek_app/components/build_card.dart';
 import 'package:ozdilek_app/constants.dart';
 import 'package:ozdilek_app/screens/productView/product_model.dart';
 import 'package:ozdilek_app/screens/productView/product_view_model.dart';
+import 'package:ozdilek_app/size_config.dart';
 import 'package:provider/provider.dart';
 
 class SearchView extends StatefulWidget {
@@ -56,8 +58,12 @@ class BuildListView extends StatefulWidget {
 class _BuildListViewState extends State<BuildListView> {
   bool isFiltering = false;
   List<Product> filteredList;
+
   @override
   Widget build(BuildContext context) {
+    final double itemHeight = getProportionateScreenHeight(350);
+    final double itemWidth = getProportionateScreenWidth(250);
+    var screenWidth = MediaQuery.of(context).size.width;
     var fullList = widget.productList;
     return Flexible(
       child: Column(
@@ -110,22 +116,23 @@ class _BuildListViewState extends State<BuildListView> {
             ),
           ),
           Flexible(
-            child: ListView.builder(
-              itemCount: isFiltering ? filteredList.length : fullList.length,
-              itemBuilder: (context, index) {
-                var list = isFiltering ? filteredList : fullList;
-                return Container(
-                  child: Card(
-                    child: ListTile(
-                      title: Text(
-                        list[index].Name,
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      subtitle: Text(list[index].Product_code),
-                    ),
-                  ),
-                );
-              },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: screenWidth < 600 ? 2 : 4,
+                  crossAxisSpacing: 0,
+                  mainAxisSpacing: 0,
+                  childAspectRatio: 2,
+                  mainAxisExtent: getProportionateScreenHeight(350),
+                ),
+                itemBuilder: (context, index) {
+                  var list = isFiltering ? filteredList : fullList;
+                  return BuildCard(
+                    product: list[index],
+                  );
+                },
+              ),
             ),
           ),
         ],

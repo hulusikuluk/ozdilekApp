@@ -27,10 +27,24 @@ class _HomeViewState extends State<HomeView> {
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
               children: [
-                BuildCard(),
-                BuildCard(),
-                BuildCard(),
-                BuildCard(),
+                ListTile(
+                  title: Text(
+                    "Test",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+                ListTile(
+                  title: Text(
+                    "Test",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+                ListTile(
+                  title: Text(
+                    "Test",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
               ],
             ),
           ),
