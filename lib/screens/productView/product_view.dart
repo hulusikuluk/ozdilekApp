@@ -57,6 +57,9 @@ class ProductView extends StatelessWidget {
       },
     ];
     resimler.removeWhere((value) => value == null);
+    double fiyat =
+        double.parse(product.Price3) * (double.parse(product.Tax) / 100 + 1);
+
     return ChangeNotifierProvider<ProductViewModel>(
       create: (_) => ProductViewModel(),
       builder: (context, child) => Container(
@@ -67,15 +70,16 @@ class ProductView extends StatelessWidget {
                 'Özdilek Ürünleri',
                 style: TextStyle(color: kPrimaryColor),
               )),
-          body: Column(
+          body: ListView(
             children: [
               buildCarouselSlider(resimler),
-              Container(
-                padding: EdgeInsets.all(getProportionateScreenHeight(10)),
-                child: Center(
-                  child: Text('${product.Name}',
-                      style:
-                          TextStyle(fontSize: getProportionateScreenWidth(15))),
+              buildTitle(),
+              Center(
+                child: Container(
+                  child: Text(
+                    '${fiyat.roundToDouble()}0₺ - Kategori : ${product.category}-${product.category_id} Sub Kategori ${product.subCategory}-${product.subCategory_id} Main Kategori ${product.mainCategory}-${product.mainCategory_id}',
+                    style: TextStyle(fontSize: getProportionateScreenWidth(10)),
+                  ),
                 ),
               ),
               buildKampanyalar(kampanyalar),
@@ -102,6 +106,16 @@ class ProductView extends StatelessWidget {
     );
   }
 
+  Container buildTitle() {
+    return Container(
+      padding: EdgeInsets.all(getProportionateScreenHeight(10)),
+      child: Center(
+        child: Text('${product.Name}',
+            style: TextStyle(fontSize: getProportionateScreenWidth(15))),
+      ),
+    );
+  }
+
   CarouselSlider buildCarouselSlider(List<String> resimler) {
     return CarouselSlider(
       options: CarouselOptions(
@@ -110,8 +124,8 @@ class ProductView extends StatelessWidget {
         initialPage: 0,
         enableInfiniteScroll: true,
         reverse: false,
-        autoPlay: true,
-        autoPlayInterval: Duration(seconds: 3),
+        autoPlay: resimler.length > 1 ? true : false,
+        autoPlayInterval: Duration(seconds: 4),
         autoPlayAnimationDuration: Duration(milliseconds: 800),
         autoPlayCurve: Curves.fastOutSlowIn,
         enlargeCenterPage: true,

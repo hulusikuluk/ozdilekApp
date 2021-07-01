@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../components/build_card.dart';
 import '../../size_config.dart';
 
 class HomeView extends StatefulWidget {

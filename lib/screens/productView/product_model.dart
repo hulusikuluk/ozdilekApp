@@ -2,12 +2,12 @@ class Product {
   final String Product_code;
   final String Product_id;
   final String Name;
-  final String MainCategory;
-  final String MainCategory_id;
-  final String Category;
-  final String Category_id;
-  final String SubCategory;
-  final String SubCategory_id;
+  final String mainCategory;
+  final String mainCategory_id;
+  final String category;
+  final String category_id;
+  final String subCategory;
+  final String subCategory_id;
   final String Price;
   final String Price2;
   final String Price3;
@@ -26,12 +26,12 @@ class Product {
       {this.Product_code,
       this.Product_id,
       this.Name,
-      this.MainCategory,
-      this.MainCategory_id,
-      this.Category,
-      this.Category_id,
-      this.SubCategory,
-      this.SubCategory_id,
+      this.mainCategory,
+      this.mainCategory_id,
+      this.category,
+      this.category_id,
+      this.subCategory,
+      this.subCategory_id,
       this.Price,
       this.Price2,
       this.Price3,
@@ -51,12 +51,12 @@ class Product {
         "Product_code": Product_code,
         "Product_id": Product_id,
         "Name": Name,
-        "MainCategory": MainCategory,
-        "MainCategory_id": MainCategory_id,
-        "Category": Category,
-        "Category_id": Category_id,
-        "SubCategory": SubCategory,
-        "SubCategory_id": SubCategory_id,
+        "mainCategory": mainCategory,
+        "mainCategory_id": mainCategory_id,
+        "category": category,
+        "category_id": category_id,
+        "subCategory": subCategory,
+        "subCategory_id": subCategory_id,
         "Price": Price,
         "Price2": Price2,
         "Price3": Price3,
@@ -77,12 +77,12 @@ class Product {
       Product_code: map['Product_code'],
       Product_id: map['Product_id'],
       Name: map['Name'],
-      MainCategory: map['MainCategory'],
-      MainCategory_id: map['MainCategory_id'],
-      Category: map['Category'],
-      Category_id: map['Category_id'],
-      SubCategory: map['SubCategory'],
-      SubCategory_id: map['SubCategory_id'],
+      mainCategory: map['mainCategory'],
+      mainCategory_id: map['mainCategory_id'],
+      category: map['category'],
+      category_id: map['category_id'],
+      subCategory: map['subCategory'],
+      subCategory_id: map['subCategory_id'],
       Price: map['Price'],
       Price2: map['Price2'],
       Price3: map['Price3'],

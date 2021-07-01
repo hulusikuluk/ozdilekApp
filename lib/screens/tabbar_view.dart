@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:ozdilek_app/constants.dart';
-import 'package:ozdilek_app/screens/drawer.dart';
+import 'package:ozdilek_app/screens/drawer/drawer_view.dart';
 import 'package:ozdilek_app/size_config.dart';
 import 'tabView/home_view.dart';
 import 'tabView/search_view.dart';
@@ -21,7 +23,7 @@ class _MainTabbarViewState extends State<MainTabbarView> {
         initialIndex: 0,
         child: Scaffold(
           drawer: Drawer(
-            child: DrawerMenu(),
+            child: DrawerView(),
           ),
           bottomNavigationBar: _bottomAppBar,
           body: SafeArea(

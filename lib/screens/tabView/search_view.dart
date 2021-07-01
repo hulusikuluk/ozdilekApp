@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../../components/build_card.dart';
@@ -84,6 +83,7 @@ class _BuildListViewState extends State<BuildListView> {
                           .toList();
                     });
                   } else {
+                    // WidgetsBinding.instance.focusManager.primaryFocus.unfocus();
                     setState(() {
                       isFiltering = false;
                     });
