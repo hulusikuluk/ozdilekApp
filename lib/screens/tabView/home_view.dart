@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../size_config.dart';
+import '../../core/database.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView();
@@ -11,43 +10,23 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    final double itemHeight = getProportionateScreenHeight(350);
-    final double itemWidth = getProportionateScreenWidth(250);
-    var screenWidth = MediaQuery.of(context).size.width;
+    Database _database = Database();
+    Future veriOku() async {
+      var datam = await _database
+          .getProductCollection("categories")
+          .doc("527")
+          .collection("527")
+          .get()
+          .then((value) => value.docs);
+      datam.forEach((element) {
+        print(element["title"]);
+      });
+    }
+
+    veriOku();
     return Column(
       children: [
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GridView.count(
-              crossAxisCount: screenWidth < 600 ? 2 : 4,
-              childAspectRatio: (itemWidth / itemHeight),
-              controller: new ScrollController(keepScrollOffset: false),
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              children: [
-                ListTile(
-                  title: Text(
-                    "Test",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
-                ListTile(
-                  title: Text(
-                    "Test",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
-                ListTile(
-                  title: Text(
-                    "Test",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        Expanded(child: Text('Hulusi')),
       ],
     );
   }

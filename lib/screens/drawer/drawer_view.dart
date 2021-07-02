@@ -69,39 +69,69 @@ class BuildListView extends StatefulWidget {
 }
 
 class _BuildListViewState extends State<BuildListView> {
-  bool isFiltering = false;
   @override
   Widget build(BuildContext context) {
     var fullList = widget.menuList;
-
-    return Expanded(
+    return Flexible(
       child: ListView.builder(
-        itemCount: fullList.length,
-        itemBuilder: (context, index) {
-          if (fullList[index].type == 'main') {
-            return ListTile(
-              title: Text(
-                '${fullList[index].title}',
-                style: TextStyle(color: colorDarkShade),
-              ),
-              leading: Icon(IconData(int.parse(fullList[index].icon),
-                  fontFamily: 'MaterialIcons')),
-              onTap: () {},
-            );
-            // Burada modele id yi gönderip bir döngü ile yeni ListTile ler döndüreceğim.
-          } else {
-            return ListTile(
-              title: Text(
-                '${fullList[index].title}',
-                style: TextStyle(color: colorDarkShade),
-              ),
-              leading: Icon(IconData(int.parse(fullList[index].icon),
-                  fontFamily: 'MaterialIcons')),
-              onTap: () {},
-            );
-          }
-        },
-      ),
+          itemCount: fullList.length,
+          itemBuilder: (context, index) {
+            if (fullList[index].type == "sub") {
+            } else {
+              return ListTile(
+                title: Text(
+                  '${fullList[index].title}',
+                  style: TextStyle(color: colorDarkShade),
+                ),
+                leading: Icon(IconData(int.parse(fullList[index].icon),
+                    fontFamily: 'MaterialIcons')),
+                onTap: () {},
+              );
+            }
+          }),
     );
   }
 }
+//   return Expanded(
+//     child: Column(
+//       children: [
+//         ListTile(
+//           title: Text(
+//             '${e.title}',
+//             style: TextStyle(color: colorDarkShade),
+//           ),
+//           leading: Icon(
+//               IconData(int.parse(e.icon), fontFamily: 'MaterialIcons')),
+//           onTap: () {},
+//         ),
+//         StreamBuilder(
+//           stream: Provider.of<DrawerViewModel>(context, listen: false)
+//               .getSubProductList(e.id),
+//           builder: (context, asyncSnapshot) {
+//             if (asyncSnapshot.hasError) {
+//               return Center(child: Text("Bir Hata Oluştu"));
+//             } else {
+//               if (!asyncSnapshot.hasData) {
+//                 return Center(
+//                   child: CircularProgressIndicator(),
+//                 );
+//               } else {
+//                 List<DrawerMenuModel> menuSubList = asyncSnapshot.data;
+//                 menuSubList.forEach((element) {
+//                   return ListTile(
+//                     title: Text(
+//                       '${element.title}',
+//                       style: TextStyle(color: colorDarkShade),
+//                     ),
+//                     leading: Icon(IconData(int.parse(element.icon),
+//                         fontFamily: 'MaterialIcons')),
+//                     onTap: () {},
+//                   );
+//                 });
+//               }
+//             }
+//           },
+//         ),
+//       ],
+//     ),
+//   );
