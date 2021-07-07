@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ozdilek_app/screens/tabView/search_view.dart';
-import 'package:ozdilek_app/screens/tabbar_view.dart';
 import 'package:provider/provider.dart';
 
 import '../../colors.dart';
 import '../../size_config.dart';
+import '../tabbar_view.dart';
 import 'drawer_model.dart';
 import 'drawer_view_model.dart';
 

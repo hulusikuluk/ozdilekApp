@@ -3,6 +3,9 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- <uses-sdk android:minSdkVersion="20"
+          android:targetSdkVersion="30"
+          android:maxSdkVersion="30" /> -->
    <application
         android:label="ozdilek_app"
         android:icon="@mipmap/ic_launcher">

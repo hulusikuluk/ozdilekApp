@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:ozdilek_app/constants.dart';
 import 'package:ozdilek_app/screens/drawer/drawer_view.dart';
@@ -21,12 +19,11 @@ class _MainTabbarViewState extends State<MainTabbarView> {
   get kategori => widget.kategori;
   get katName => widget.katName;
   get index => widget.index;
-  int defaultTabLength = 4;
+  int defaultTabLength = 2;
   int currentIndex = 0;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     if (kategori != null) {
       setState(() {
@@ -59,8 +56,6 @@ class _MainTabbarViewState extends State<MainTabbarView> {
                     children: <Widget>[
                       HomeView(),
                       SearchView(kategori: kategori, katName: katName),
-                      Text("Tab 3"),
-                      Text("Tab 4"),
                     ],
                   ),
                 )
@@ -102,8 +97,6 @@ class _MainTabbarViewState extends State<MainTabbarView> {
         tabs: [
           Tab(icon: Icon(Icons.home)),
           Tab(icon: Icon(Icons.search)),
-          Tab(icon: Icon(Icons.ac_unit_outlined)),
-          Tab(icon: Icon(Icons.safety_divider)),
         ],
       );
 }
